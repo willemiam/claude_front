@@ -28,7 +28,7 @@
     }
 </script>
 
-\<!-- <section class="hero">
+<!-- <section class="hero">
     <div class="container">
         <h1>Find Your Perfect Car</h1>
         <p>
@@ -65,23 +65,41 @@
         </p>
         <div class="search-box">
             <form class="search-form">
-                <select bind:value={make} on:change={updateModels}>
-                    <option value="">Wybierz markę</option>
-                    {#each makes as brand}
-                        <option value={brand}>{brand}</option>
-                    {/each}
-                </select>
+                <div class="input-fields">
+                    <label class="form-label">Marka</label>
+                    <select bind:value={make} on:change={updateModels}>
+                        <option value="">Wybierz</option>
+                        {#each makes as brand}
+                            <option value={brand}>{brand}</option>
+                        {/each}
+                    </select>
+                </div>
+                <div class="input-fields">
+                    <!-- Lista rozwijana dla modeli -->
+                    <label class="form-label">Model</label>
+                    <select bind:value={model} disabled={!make}>
+                        <option value="">Wybierz</option>
+                        {#each models as m}
+                            <option value={m}>{m}</option>
+                        {/each}
+                    </select>
+                </div>
+                <div class="input-fields">
+                    <label class="form-label">Rok</label>
+                    <!-- <input
+                        type="number"
+                        bind:value={year}
+                        placeholder="Od roku"
+                    /> -->
+                    <select bind:value={year} type="number">
+                        <option value="">Wybierz</option>
+                        {#each year as y}
+                            <option value={y}>{y}</option>
+                        {/each}
+                    </select>
+                </div>
 
-                <!-- Lista rozwijana dla modeli -->
-                <select bind:value={model} disabled={!make}>
-                    <option value="">Wybierz model</option>
-                    {#each models as m}
-                        <option value={m}>{m}</option>
-                    {/each}
-                </select>
-
-                <input type="number" bind:value={year} placeholder="Rok" />
-                <button on:click={applyFilter}>Szukaj</button>
+                <button id="search-btn" on:click={applyFilter}>Szukaj</button>
             </form>
         </div>
     </div>
@@ -133,13 +151,25 @@
     }
 
     .search-form {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
         gap: 1rem;
+    }
+    .form-label {
+        color: black;
+    }
+    .input-fields {
+        display: flex;
+        flex-direction: column;
     }
 
     .search-form select {
-        padding: 0.75rem;
+        min-width: 11rem;
+        max-width: 11rem;
+        min-height: 3.25rem;
+        max-height: 3.25rem;
+        padding: 0.5rem;
         border: 1px solid var(--mid-gray);
         border-radius: 4px;
         font-size: 1rem;
@@ -148,5 +178,17 @@
     .search-form button {
         padding: 0.75rem;
         font-size: 1rem;
+    }
+    #search-btn {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        font-size: large;
+        font-weight: bold;
+        color: aliceblue;
+        text-decoration: none;
+        margin: auto;
+        background-color: var(--accent-color);
+        border-radius: 0.25rem;
+        transition: all 0.2s ease;
     }
 </style>

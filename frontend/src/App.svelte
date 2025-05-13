@@ -7,11 +7,11 @@
   import { isAuthenticated, user } from "./stores/store";
 
   import Navbar from "./components/Navbar.svelte";
-  import Footer from "./components/Footer.svelte";
   import Home from "./routes/home.svelte";
   import Account from "./routes/account.svelte";
-  //import AddItem from "./routes/addItem.svelte";
+  import AddItem from "./routes/addItem.svelte";
   import Filter from "./routes/filter.svelte";
+  import Footer from "./components/Footer.svelte";
 
   export let url = "";
   onMount(async () => {
@@ -25,6 +25,7 @@
 
     <main>
       <Route path="/" component={Home} />
+      <Route path="/addItem" component{AddItem} />
       <Route path="/account" component={Account} />
       <Route path="/filter" component={Filter} />
       <!-- Other routes -->

@@ -48,8 +48,12 @@
             </Link>
 
             <div class="nav-links">
-                <a href="/" class="nav-link">Start</a>
-                <a href="/filter" class="nav-link">Ogłoszenia</a>
+                <li>
+                    <a href="/" class="nav-link">Start</a>
+                </li>
+                <li>
+                    <a href="/addItem" class="nav-link">Dodaj ogłoszenie</a>
+                </li>
                 <!-- <a href="/filter" class="nav-link">Filtruj Ogłoszenia</a> -->
 
                 {#if $isAuthenticated}
@@ -76,6 +80,12 @@
 
 <style>
     header {
+        display: flex;
+        justify-content: center;
+
+        padding: 0px;
+        margin: 0px;
+        max-height: 5rem;
         background-color: white;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         position: sticky;
@@ -88,6 +98,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0;
+        margin: auto;
     }
 
     .logo {
@@ -105,23 +116,26 @@
 
     .nav-links {
         display: flex;
-        gap: 1rem;
+        gap: 0.8rem;
         color: aliceblue;
+    }
+    .nav-links li {
+        display: flex;
     }
     .nav-links a {
         font-weight: bold;
         color: aliceblue;
         text-decoration: none;
-        margin-right: 0.05rem;
+        margin-right: auto 0.05rem auto 0rem;
         background-color: var(--accent-color);
-        border-radius: 0.25rem;
+        border-radius: 0.8rem;
         transition: all 0.2s ease;
     }
     .nav-links a:hover {
         background-color: #006699;
     }
 
-    .nav-btn {
+    .nav-link {
         padding: 0.5rem 1rem;
         border-radius: 4px;
         text-decoration: none;

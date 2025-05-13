@@ -47,7 +47,7 @@
     {/each}
   </select>
 
-  <input type="number" bind:value={year} placeholder="Rok" />
+  <input type="number" bind:value={year} placeholder="Od roku" />
   <button on:click={applyFilter}>Szukaj</button>
 </div>
 
