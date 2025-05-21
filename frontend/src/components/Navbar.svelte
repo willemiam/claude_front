@@ -52,7 +52,7 @@
                     <a href="/" class="nav-link">Start</a>
                 </li>
                 <li>
-                    <a href="/addItem" class="nav-link">Dodaj ogłoszenie</a>
+                    <a href="/additem" class="nav-link">Dodaj ogłoszenie</a>
                 </li>
                 <!-- <a href="/filter" class="nav-link">Filtruj Ogłoszenia</a> -->
 
